@@ -12,7 +12,7 @@
             <th>Lanbidea</th>
             <th>Grado akademikoa</th>
             <th>Telefonoa</th>
-
+            <th>Aldatu</th>
         </tr>
 
     @foreach ($profesores as $profesor)
@@ -21,6 +21,7 @@
             <td>{{ $profesor->profesion }}&nbsp;&nbsp;</td>
             <td>{{ $profesor->gradoAcademico }}&nbsp;&nbsp;</td>
             <td>{{ $profesor->telefono }}</td>
+            <td><a href="{{ route('profesores.edit', $profesor->id) }}">Aldatu</a></td>
         </tr>
 
         @if($profesor->cursos->isNotEmpty())

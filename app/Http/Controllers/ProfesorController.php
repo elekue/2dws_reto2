@@ -51,19 +51,19 @@ class ProfesorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
+    public function edit(Profesor $profesor){
+        return view('profesores.edit', compact('profesor'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    public function update(Request $request, Profesor $profesor){
+        $profesor->nombreApellido = $request->nombreApellido;
+        $profesor->profesion = $request->profesion;
+        $profesor->gradoAcademico = $request->gradoAcademico;
+        $profesor->telefono = $request->telefono;
+        $profesor->save();
 
+        return redirect()->route('profesores.index');
+    }
     /**
      * Remove the specified resource from storage.
      */

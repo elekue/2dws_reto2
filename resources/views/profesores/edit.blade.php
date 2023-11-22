@@ -5,7 +5,7 @@
 
     <h1>IRAKASLEA ALDATU - {{ $profesor->nombreApellido }} </h1>
 
-    <form method="post" action="{{ route('profesors.update', $profesor) }}">
+    <form method="post" action="{{ route('profesores.update', $profesor) }}">
         @csrf
         @method('PUT')
         Izen Abizena <input type="text" name="nombreApellido" value="{{ $profesor->nombreApellido }}"><br>

@@ -21,7 +21,7 @@
             <td>{{ $curso->nivel }}&nbsp;&nbsp;</td>
             <td>{{ $curso->horasAcademicas }}&nbsp;&nbsp;</td>
             <td>{{ $curso->profesor->nombreApellido }}</td>
-            <td><a href="{{ route('cursos.edit', $curso->id) }}">Edit</a></td>
+            <td><a href="{{ route('cursos.edit', $curso->id) }}">Aldatu</a></td>
         </tr>
 
      @endforeach

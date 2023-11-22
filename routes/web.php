@@ -54,3 +54,5 @@ Route::put('cursos/update/{curso}', [CursoController::class, 'update'] )->name('
 Route::get('profesores', [ProfesorController::class, 'index'] )->name('profesores.index');
 Route::get('profesores/create', [ProfesorController::class, 'create'] )->name('profesores.create');
 Route::post('profesores/store', [ProfesorController::class, 'store'] )->name('profesores.store');
+Route::get('profesores/edit/{profesor}', [ProfesorController::class, 'edit'] )->name('profesores.edit');
+Route::put('profesores/update/{profesor}', [ProfesorController::class, 'update'] )->name('profesores.update');
