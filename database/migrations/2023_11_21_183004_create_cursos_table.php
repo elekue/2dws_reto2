@@ -18,7 +18,15 @@ return new class extends Migration
             $table->string('nivel', 35);
             $table->string('horasAcademicas', 35)->nullable();
             $table->unsignedBigInteger('profesor_id');
-            $table->foreign('profesor_id')->references('id')->on('profesors');
+           // $table->foreign('profesor_id')->references('id')->on('profesors');
+
+           // Horrela ezingo dugu profesor bat ezabatu cursos baldin baditu
+            $table->foreign('profesor_id')->references('id')->on('profesors')->onDelete('restrict');
+
+            // Kasu honetan profesor bat ezabatzerakoan, curso-an NULL jarriko dio eremu honetan
+            // Baina hori horrela nahi izatekotan "nullable" jarri beharko genioke hori eremuari
+            //$table->unsignedBigInteger('profesor_id')->nullable();
+           // $table->foreign('profesor_id')->references('id')->on('profesors')->onDelete('set null');
 
             $table->timestamps();
         });

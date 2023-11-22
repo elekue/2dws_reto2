@@ -49,6 +49,7 @@ Route::get('cursos/create', [CursoController::class, 'create'] )->name('cursos.c
 Route::post('cursos/store', [CursoController::class, 'store'] )->name('cursos.store');
 Route::get('cursos/edit/{curso}', [CursoController::class, 'edit'] )->name('cursos.edit');
 Route::put('cursos/update/{curso}', [CursoController::class, 'update'] )->name('cursos.update');
+Route::delete('cursos/{curso}', [CursoController::class, 'destroy'] )->name('cursos.destroy');
 
 // PROFESORES
 Route::get('profesores', [ProfesorController::class, 'index'] )->name('profesores.index');
@@ -56,3 +57,4 @@ Route::get('profesores/create', [ProfesorController::class, 'create'] )->name('p
 Route::post('profesores/store', [ProfesorController::class, 'store'] )->name('profesores.store');
 Route::get('profesores/edit/{profesor}', [ProfesorController::class, 'edit'] )->name('profesores.edit');
 Route::put('profesores/update/{profesor}', [ProfesorController::class, 'update'] )->name('profesores.update');
+Route::delete('profesores/{profesor}', [ProfesorController::class, 'destroy'] )->name('profesores.destroy');

@@ -64,11 +64,29 @@ class ProfesorController extends Controller
 
         return redirect()->route('profesores.index');
     }
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+
+
+    public function destroy(Profesor $profesor){
+
+        $cursosDelProfesor = $profesor->cursos;
+
+        if ($cursosDelProfesor->isNotEmpty()) {
+            return redirect()->route('profesores.index')
+                ->with('error', 'El profesor tiene cursos asociados y no se puede eliminar.');
+        }
+
+        // Si no hay cursos asociados, se puede proceder con la eliminación del profesor
+        $profesor->delete();
+
+        return redirect()->route('profesores.index')
+            ->with('success', 'Profesor eliminado correctamente');
+
+
     }
+
+
+
+
+
+
 }
