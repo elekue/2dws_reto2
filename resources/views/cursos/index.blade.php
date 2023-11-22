@@ -12,7 +12,7 @@
             <th>Maila</th>
             <th>Orduak</th>
             <th>Irakaslea</th>
-
+            <th>Aldatu</th>
         </tr>
 
     @foreach ($cursos as $curso)
@@ -21,6 +21,7 @@
             <td>{{ $curso->nivel }}&nbsp;&nbsp;</td>
             <td>{{ $curso->horasAcademicas }}&nbsp;&nbsp;</td>
             <td>{{ $curso->profesor->nombreApellido }}</td>
+            <td><a href="{{ route('cursos.edit', $curso->id) }}">Edit</a></td>
         </tr>
 
      @endforeach

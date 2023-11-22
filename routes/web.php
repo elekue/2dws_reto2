@@ -45,6 +45,12 @@ Route::resource('alumnos', AlumnoController::class);
 
 // CURSOS ******************************
 Route::get('cursos', [CursoController::class, 'index'] )->name('cursos.index');
+Route::get('cursos/create', [CursoController::class, 'create'] )->name('cursos.create');
+Route::post('cursos/store', [CursoController::class, 'store'] )->name('cursos.store');
+Route::get('cursos/edit/{curso}', [CursoController::class, 'edit'] )->name('cursos.edit');
+Route::put('cursos/update/{curso}', [CursoController::class, 'update'] )->name('cursos.update');
 
 // PROFESORES
 Route::get('profesores', [ProfesorController::class, 'index'] )->name('profesores.index');
+Route::get('profesores/create', [ProfesorController::class, 'create'] )->name('profesores.create');
+Route::post('profesores/store', [ProfesorController::class, 'store'] )->name('profesores.store');

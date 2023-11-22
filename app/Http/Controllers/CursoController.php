@@ -5,32 +5,35 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Curso;
+use App\Models\Profesor;
 
 class CursoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index(){
         $cursos = Curso::all();
 
          return view('cursos.index', compact('cursos'));
      }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
-        //
+        $profesores = Profesor::all();
+        return view('cursos.create', compact('profesores'));
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $curso = new Curso();
+        $curso->nombre = $request->nombre;
+        $curso->nivel = $request->nivel;
+        $curso->horasAcademicas = $request->horasAcademicas;
+        $curso->profesor_id = $request->profesor_id;
+        $curso->save();
+
+        return redirect()->route('cursos.index');
     }
 
     /**
@@ -41,20 +44,22 @@ class CursoController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+    public function edit(Curso $curso){
+        $profesores = Profesor::all();
+
+        return view('cursos.edit', compact('curso','profesores'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+
+    public function update(Request $request, Curso $curso)
     {
-        //
+        $curso->nombre = $request->nombre;
+        $curso->nivel = $request->nivel;
+        $curso->horasAcademicas = $request->horasAcademicas;
+        $curso->profesor_id = $request->profesor_id;
+        $curso->save();
+
+        return redirect()->route('cursos.index');
     }
 
     /**

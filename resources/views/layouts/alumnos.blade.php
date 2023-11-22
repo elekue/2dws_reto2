@@ -3,16 +3,17 @@
     <head>
         <title>@yield('title')</title>
         <script src="https://cdn.tailwindcss.com"></script>
-        <style>
-            p { color: red; }
-        </style>
+        <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
+
     </head>
 
 <body>
 
     @include('partials.menu')
+    <section  class="content">
+        @yield('content')
+    </section>
 
-    @yield('content')
 
     @include('partials.footer')
 </body>

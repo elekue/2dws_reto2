@@ -28,18 +28,18 @@ class StoreAlumno extends FormRequest
     }
 
 
-    // public function messages(): array
+    public function messages(): array
+    {
+         return [
+             'nombre.required' => 'El nombre es obligatorio',
+             'edad' => 'La edad es obigatoria'
+         ];
+     }
+
+    // public function atributes(): array
     // {
     //     return [
-    //         'nombre.required' => 'El nombre es obligatorio',
-    //         'edad' => 'La edad es obigatoria'
+    //         'nombre' => 'nombre del alumno/a'
     //     ];
     // }
-
-    public function atributes(): array
-    {
-        return [
-            'nombre' => 'nombre del alumno/a'
-        ];
-    }
 }

@@ -22,7 +22,7 @@ class ProfesorController extends Controller
      */
     public function create()
     {
-        //
+        return view('profesores.create');
     }
 
     /**
@@ -30,7 +30,14 @@ class ProfesorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $profesor = new Profesor();
+        $profesor->nombreApellido = $request->nombreApellido;
+        $profesor->profesion = $request->profesion;
+        $profesor->gradoAcademico = $request->gradoAcademico;
+        $profesor->telefono = $request->telefono;
+        $profesor->save();
+
+        return redirect()->route('profesores.index');
     }
 
     /**
