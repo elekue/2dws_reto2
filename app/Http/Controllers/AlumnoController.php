@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Alumno;
 use App\Http\Requests\StoreAlumno;
+use Illuminate\Support\Facades\Storage;
 
 class AlumnoController extends Controller
 {
@@ -40,6 +41,14 @@ class AlumnoController extends Controller
          $alumno->edad = $request->edad;
          $alumno->telefono = $request->telefono;
          $alumno->direccion = $request->direccion;
+
+
+         if ($request->file('foto')){
+             $url = Storage::putFile('public/alumnos', $request->file('foto'));
+         }
+
+         $alumno->foto = $url;
+
          $alumno->save();
 
          return redirect()->route('alumnos.show',$alumno);
@@ -81,7 +90,6 @@ class AlumnoController extends Controller
     public function destroy(Alumno $alumno){
         $alumno->delete();
         return redirect()->route('alumnos.index');
-
     }
 
 }

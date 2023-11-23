@@ -8,6 +8,7 @@
 
     <table style="border:1px solid">
         <tr>
+            <th>Argazkia</th>
             <th>Izen abizena</th>
             <th>Adina</th>
             <th>Telefonoa</th>
@@ -20,6 +21,13 @@
     @foreach ($alumnos as $alumno)
 
         <tr>
+            <td>
+                @if ($alumno->foto)
+                <img src="{{ $alumno->foto }}" alt="" width="25px" height="25px"/>
+            @else
+                <img src="storage/alumnos/alumno.png" alt="" width="25px" height="25px"/>
+            @endif
+            </td>
             <td><a href="{{ route('alumnos.show', $alumno->id) }}">{{ $alumno->nombre }}</a></td>
             <td>{{ $alumno->edad }}</td>
             <td>{{ $alumno->telefono }}</td>

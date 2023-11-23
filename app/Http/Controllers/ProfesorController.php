@@ -70,18 +70,17 @@ class ProfesorController extends Controller
 
         $cursosDelProfesor = $profesor->cursos;
 
+        // Ikastaroak egotekotan ezingo dugu ezabatu
         if ($cursosDelProfesor->isNotEmpty()) {
             return redirect()->route('profesores.index')
-                ->with('error', 'El profesor tiene cursos asociados y no se puede eliminar.');
+                ->with('error', 'Irakasleak ikastaroak ditu eta ezin da ezabatu.');
         }
 
-        // Si no hay cursos asociados, se puede proceder con la eliminación del profesor
+        // Ikastarorik ez badago, irakaslea ezaba daiteke
         $profesor->delete();
 
         return redirect()->route('profesores.index')
-            ->with('success', 'Profesor eliminado correctamente');
-
-
+            ->with('success', 'Irakaslea ongi ezabatu da');
     }
 
 

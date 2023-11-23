@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'local'),
+    'default' => env('FILESYSTEM_DISK', 'public'),   // Por defecto hemen local jartzen du, guk public jarri behar dugu irudiak igo ahal izateko.
+    // De esta manera nuestro navegador podrá acceder a la carpeta storage/app/public
+    // Y de esta manera podemos acceder desde el enlace directo que escuela23/public/store
 
     /*
     |--------------------------------------------------------------------------

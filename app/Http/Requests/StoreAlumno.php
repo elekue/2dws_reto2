@@ -23,7 +23,8 @@ class StoreAlumno extends FormRequest
     {
         return [
             'nombre' => 'required|min:5',
-            'edad' => 'required'
+            'edad' => 'required',
+            'foto' => 'image'
         ];
     }
 
