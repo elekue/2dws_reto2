@@ -22,11 +22,14 @@
 
         <tr>
             <td>
-                @if ($alumno->foto)
-                <img src="{{ $alumno->foto }}" alt="" width="25px" height="25px"/>
+
+            @if ($alumno->foto)
+                <img src="{{ url($alumno->foto)}}" alt="" width="25px" height="25px"/>
             @else
-                <img src="storage/alumnos/alumno.png" alt="" width="25px" height="25px"/>
+                <img src="{{ url('storage/alumnos/alumno.png') }}" alt="" width="25px" height="25px"/>
             @endif
+
+
             </td>
             <td><a href="{{ route('alumnos.show', $alumno->id) }}">{{ $alumno->nombre }}</a></td>
             <td>{{ $alumno->edad }}</td>

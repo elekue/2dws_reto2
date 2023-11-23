@@ -7,9 +7,9 @@
         <label><strong>Izen abizenak:</strong> {{ $alumno->nombre }}</label><br>
 
         @if ($alumno->foto)
-            <img src="../{{ $alumno->foto }}" alt="" width="200px" height="200px"/>
+            <img src="{{ url($alumno->foto)}}" alt="" width="200px" height="200px"/>
         @else
-            <img src="../storage/alumnos/alumno.png" alt="" width="200px" height="200px"/>
+            <img src="{{ url('storage/alumnos/alumno.png') }}" alt="" width="200px" height="200px"/>
         @endif
 
         <label><strong>Adina:</strong> {{ $alumno->edad }}</label><br>
